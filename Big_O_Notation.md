@@ -5,7 +5,7 @@ Python's csv.reader object reads the entire file into a list, which takes linear
 
 
 # Task1
-get_texts(file): O(n) as explained in Task0
+get_texts(file): O(n) as Explained in [Task0](#task0)
 
 get_calls(file): O(n) where n is the number of rows in the CSV file. This is because the csv.reader object reads the entire file into a list, which takes linear time proportional to the number of rows in the file.
 
@@ -16,7 +16,7 @@ The conversion of distinct_numbers to a set and then back to a list: O(n) where 
 ### Worst-case Big-O notation: O(n) + O(n) + O(n) + O(n) = O(4n) => O(n)
 
 # Task2
-Reading the CSV file and iterating over each row: explained in Task0
+Reading the CSV file and iterating over each row: Explained in [Task0](#task0)
 
 Splitting each row into parts and converting the duration to an integer: O(1), these operations are constant time.
 
@@ -35,7 +35,7 @@ is_mobile_number(phone_number): O(n) where n is the number of characters in the 
 
 is_telemarketer(phone_number): O(1) because it checks if the phone number starts with a specific string == constant time.
 
-get_calls(file): explained in Task0.
+get_calls(file): Explained in [Task0](#task0).
 
 main(): O(n) where n is the number of rows in the CSV file. As explained in Task0.
 
