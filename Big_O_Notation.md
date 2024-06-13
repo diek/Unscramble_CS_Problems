@@ -71,4 +71,4 @@ Explained in [Task0](#task0)
 Time Complexity: O(n log n)
 Space Complexity: O(n)
 
-# Note: Some assistance from chatgpt.com was used.
+### Note: Some assistance from chatgpt.com was used.
