@@ -1,0 +1,87 @@
+# Task0
+Python's csv.reader object reads the entire file into a list, which takes linear time proportional to the number of rows in the file, and then we iterate over the list to find the last element, which also takes linear time.
+
+### Worst-case Big-O notation: O(n) + O(n) = O(2n) => O(n)
+
+
+# Task1
+get_texts(file): O(n) as Explained in [Task0](#task0)
+
+get_calls(file): O(n) where n is the number of rows in the CSV file. This is because the csv.reader object reads the entire file into a list, which takes linear time proportional to the number of rows in the file.
+
+The loop that iterates over telephone_numbers and adds elements to distinct_numbers: O(n) where n is the total number of rows in both CSV files.
+
+The conversion of distinct_numbers to a set and then back to a list: O(n) where n is the number of elements in distinct_numbers. This is because converting a list to a set and back to a list takes linear time.
+
+### Worst-case Big-O notation: O(n) + O(n) + O(n) + O(n) = O(4n) => O(n)
+
+# Task2
+Reading the CSV file and iterating over each row: Explained in [Task0](#task0)
+
+Splitting each row into parts and converting the duration to an integer: O(1), these operations are constant time.
+
+Updating the call_length dictionary: O(1) because we are using a dictionary to store the call lengths, which allows for constant time lookups and updates.
+
+Finding the maximum key in the call_length dictionary using the max function with a key: O(n) where n is the number of items in the dictionary, we need to iterate over each item in the dictionary to find the maximum key.
+
+### Worst-case Big-O notation: O(n) + O(n) = O(2n) => O(n)
+
+# Task3 - Part A
+## Function - get_calls(file) - gets unique master list of outgoing, complexity of O(n).
+
+## Functions
+contains_parentheses: O(n)
+is_fixed_line: O(n)
+is_mobile_number: O(n)
+is_telemarketer: the python string function startswith is a constant time complexity O(1)
+
+main:
+The loop:
+  executes each function O(n),
+  appending to the applicable list in constant so O(1)
+
+Data Presentation
+creating the set and sorting is logrithmic, O(number of calls log number of calls) => O(n log n)
+
+# Task3 - Part B
+
+# Step 1: Count total calls from '080'
+Worst-case Big-O notation: O(n)
+
+# Step 2: Count calls from '080' to '080'
+Worst-case Big-O notation: The loop is O(n), with each check for "080" being a constant O(1)
+
+# Step 3: Calculate the percentage
+Worst-case Big-O notation: calculation is a constant time op, O(1)
+
+# print
+Worst-case Big-O notation: constant time op, O(1)
+
+
+# Task4
+## Functions: sent_text(), received_text(), and receive_calls()
+
+Each of these functions takes two sets as inputs and checks if each element in the master set is not in the second set, appending the element to the result list if the condition is met.
+
+Time Complexity: O(m) for each function, where m is the size of the master set.
+Space Complexity: O(m) (to store the result list)
+
+## Function: main
+
+### Reading Texts and Calls:
+Explained in [Task0](#task0)
+
+### Creating sets - from the texts and calls lists involves iterating through each list.
+1. Extracting unique numbers from the calls list to form master_call has a complexity of O(n).
+2. Similarly, extracting send_text, receive_text, and receive_call from the texts and calls lists each has a complexity of O(n).
+
+
+### Combining Results (possible_telemarketers and sorting):
+1. Creating the set from three lists (each of length at most n) has a complexity of O(n).
+2. Sorting the resulting set has a complexity of O(n log n) 
+
+## Worst-case Big-O notation for the provided code is:
+Time Complexity: O(n log n)
+Space Complexity: O(n)
+
+### Note: Some assistance from chatgpt.com was used, as well as the code review

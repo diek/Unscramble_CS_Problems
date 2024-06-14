@@ -1,7 +1,3 @@
-"""
-Read file into texts and calls.
-It's ok if you don't understand how to read files.
-"""
 import csv
 
 
@@ -62,13 +58,11 @@ def main():
     receive_text = set([msg[1] for msg in texts])
     receive_call = set([call[1] for call in calls])
 
-    never_sent_text = sent_text(master_call, send_text)
-    never_receive_text = received_text(master_call, receive_text)
-    never_received_incoming_call = receive_calls(master_call, receive_call)
-
-    possible_telemarketers = set(
-        never_sent_text + never_receive_text + never_received_incoming_call
+    # Resolved with the help of the code review
+    possible_telemarketers = master_call.difference(
+        send_text | receive_text | receive_call
     )
+
     print("These numbers could be telemarketers: ")
     for telemarketer in sorted(possible_telemarketers):
         print(telemarketer)

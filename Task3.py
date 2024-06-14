@@ -55,22 +55,19 @@ def get_calls(file):
     with open(file, "r") as f:
         reader = csv.reader(f)
         next(f)
-        for row in f:
-            row = row.strip()
-            call_num, rec_num, start, duration = row.split(",")
-            if call_num.startswith("(080)", 0):
-                call_list.append(rec_num)
+        for row in reader:
+            if row[0].startswith("(080)", 0):
+                call_list.append(row[1])
 
     return call_list
 
 
 def main():
     filtered_outgoing = get_calls("calls.csv")
-    telemarketers = []
     area_codes = []
     fixed_line = []
 
-    # Part A
+    # PART A
     for call in filtered_outgoing:
         if is_telemarketer(call):
             area_codes.append(call)
@@ -87,13 +84,11 @@ def main():
             area_codes.append(call[0:4])
 
     unique_area_codes = set(area_codes)
-    # print("The numbers called by people in Bangalore have codes:")
-    # for area_code in sorted(unique_area_codes):
-    #     print(area_code)
+    print("The numbers called by people in Bangalore have codes:")
+    for area_code in sorted(unique_area_codes):
+        print(area_code)
 
-    print(fixed_line)
-
-    # Part B
+    # PART B
 
     # Step 1: Count total calls from '080'
     total_calls_from_Bangalore = fixed_line.count("080")
@@ -105,11 +100,14 @@ def main():
             calls_from_Bangalore_to_Bangalore += 1
 
     # Step 3: Calculate the percentage
-    percentage_calls_from_080_to_080 = (
+    percentage_calls_080_080 = (
         calls_from_Bangalore_to_Bangalore / total_calls_from_Bangalore
-    ) * 100
+    )
 
-    total_calls_from_Bangalore, calls_from_Bangalore_to_Bangalore, percentage_calls_from_080_to_080
+    # I removed the 100 from the percent calculation, print f  % does this
+    print(
+        f"{percentage_calls_080_080:.2%} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore."
+    )
 
 
 if __name__ == "__main__":
